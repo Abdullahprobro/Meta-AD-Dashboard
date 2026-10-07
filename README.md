@@ -8,7 +8,7 @@ An end-to-end Power BI analytics solution designed to evaluate Meta (Facebook & 
 
 | Page 1: Executive & Financial View | Page 2: Operational & Creative Deep-Dive |
 | :---: | :---: |
-| ![Executive Overview Page 1](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1193).png?raw=true) | ![Creative Deep Dive Page 2](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1225).png?raw=true) |
+| ![Executive Overview Page 1](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1193).png?raw=true) | ![Creative Deep Dive Page 2](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1243).png?raw=true) |
 
 ### 📹 Video Walkthrough & Demo
 * **[Click Here to Watch the Full Multi-Page Interactive Demo Video](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Meta%20ad%20dashboard%20(1)%20(1).mp4)**
@@ -83,7 +83,7 @@ Designed for high-level stakeholders requiring real-time insights into total spe
 ### 🎯 Page 2: Operational, Audience & Creative Deep-Dive
 Designed for media buyers and creative teams to analyze creative efficiency, demographic traction, and placement distribution.
 
-![Page 2 Deep Dive Full](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1226).png?raw=true)
+![Page 2 Deep Dive Full](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1243).png?raw=true)
 
 * **Container 1: Ad Creative Performance Breakdown (Matrix)**
   * **Fields**: `AD_CREATIVES[Ad_Name]`, `AD_CREATIVES[Creative_Type]`, `ADS_DATA[Total Spend]`, `ADS_DATA[CTR %]`, `ADS_DATA[Total Conversions]`, `ADS_DATA[ROAS]`.
@@ -118,7 +118,7 @@ Designed for media buyers and creative teams to analyze creative efficiency, dem
 
 | Feature / Visual | Screenshot Preview |
 | :--- | :--- |
-| **Page 2 Deep-Dive Overview** | ![Screenshot 1225](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1225).png?raw=true) |
+| **Page 2 Production View** | ![Screenshot 1243](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1243).png?raw=true) |
 | **Creative Matrix Breakdown** | ![Screenshot 1227](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1227).png?raw=true) |
 | **Platform Breakdown (Donut)** | ![Screenshot 1228](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1228).png?raw=true) |
 | **Placement CTR % Analysis** | ![Screenshot 1229](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1229).png?raw=true) |
@@ -155,3 +155,59 @@ Designed for media buyers and creative teams to analyze creative efficiency, dem
 * **Creative Renewal Alerts**: CTR % monitoring on Page 2 flags decaying ad creatives before acquisition costs spike.
 * **Placement Spend Efficiency**: Prevents wasted ad spend by identifying placements with high impressions but low conversion rates.
 * **Demographic Precision**: Informs future audience targeting strategies by isolating the age and gender demographics driving the highest lifetime value.
+
+---
+
+## 🎨 In-Depth Audience & Creative Performance Analysis (Page 2 Operational Deep-Dive)
+
+Page 2 serves as the primary operational workspace for growth marketers, performance media buyers, and creative strategists. Below is a detailed breakdown of the visualizations, configurations, and technical setup driving Page 2.
+
+### 🖼️ Complete Page 2 Production View
+![Page 2 Production View](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1243).png?raw=true)
+
+---
+
+### 1. Ad Creative Performance Breakdown & Fatigue Detection Matrix
+![Creative Matrix Breakdown](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1227).png?raw=true)
+
+* **Visual Matrix**: Evaluates ad-level creative concepts (`Ad Name`, `Creative Type`, `Spend`, `CTR %`, `Conversions`, `ROAS`).
+* **Conditional Formatting Configuration**:
+  ![Matrix Conditional Formatting](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1236).png?raw=true)
+  * In-cell dynamic data bars (`#0052FF`) applied directly to `ROAS` and `CTR %` allow media buyers to quickly distinguish top-performing video assets from fatiguing static graphics.
+* **Custom Tooltip Integration**:
+  ![Tooltip Configurations](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1238).png?raw=true)
+  * Hovering over any creative row displays custom secondary metrics (Impressions, CPA, Cost Per Click) without overcrowding the primary report grid.
+
+---
+
+### 2. Slicer & Cross-Filtering Synchronization Setup
+![Filter & Slicer Setup](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1237).png?raw=true)
+
+* **Cross-Filtering Logic**: Synchronized slicers across both pages ensure that selecting a specific campaign or date range on Page 1 updates all demographic, creative, and placement metrics on Page 2 automatically.
+
+---
+
+### 3. Demographic & Callout Formatting Breakdown
+![Demographics Distribution](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1230).png?raw=true)
+
+* **Audience Analytics**: Maps spend and conversions across age brackets (`18-24`, `25-34`, `35-44`, `45-54`) and gender classifications.
+* **Precision Formatting**:
+  ![Callout Formatting & Decimals](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1235).png?raw=true)
+  * Standardized decimal formatting ensures consistent KPI card displays and clean visual alignment across all device screens.
+
+---
+
+### 4. Placement Axis & Efficiency Analysis
+![Placement Axis Formatting](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1239).png?raw=true)
+
+* **Placement CTR Breakdown**: Evaluates engagement efficiency across Facebook Feed, Instagram Reels, FB Stories, and IG Explore.
+* **Axis & Label Standardization**: Custom-sorted horizontal bar layout with standardized percentage formatting to quickly flag low-performing placements.
+
+---
+
+### 5. Backend Architectural Foundation for Page 2
+
+| Data Model Relationship (Star Schema) | Power Query Transformation Pipeline |
+| :---: | :---: |
+| ![Star Schema Model](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1241).png?raw=true) | ![Power Query Setup](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1242).png?raw=true) |
+| Single-direction 1:N filter context propagation from `AD_CREATIVES` and `CAMPAIGNS` into `ADS_DATA`. | Data typing, column cleanup, and relational key definitions in Power Query. |
