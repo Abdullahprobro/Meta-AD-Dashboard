@@ -1,6 +1,6 @@
 # Meta Ads Executive & Operational Analytics Dashboard
 
-An end-to-end Power BI analytics solution designed to evaluate Meta (Facebook & Instagram) advertising performance across executive and operational levels. This multi-page dashboard bridges high-level financial reporting (**Page 1: Financial & Executive Overview**) with granular operational intelligence (**Page 2: Creative & Placement Deep-Dive**) to optimize ad spend allocation, detect creative fatigue, and maximize return on ad spend (ROAS).
+An end-to-end Power BI analytics solution designed to evaluate Meta (Facebook & Instagram) advertising performance across executive and operational levels. This multi-page dashboard bridges high-level financial reporting (**Page 1: Financial & Executive Overview**) with granular marketing intelligence (**Page 2: Creative & Placement Deep-Dive**) to optimize ad spend allocation, detect creative fatigue, and maximize return on ad spend (ROAS).
 
 ---
 
@@ -8,7 +8,7 @@ An end-to-end Power BI analytics solution designed to evaluate Meta (Facebook & 
 
 | Page 1: Executive & Financial View | Page 2: Operational & Creative Deep-Dive |
 | :---: | :---: |
-| ![Executive Overview Page 1](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1193).png?raw=true) | ![Creative Deep Dive Page 2](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1243).png?raw=true) |
+| ![Executive Overview Page 1](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1193).png?raw=true) | ![Creative Deep Dive Page 2](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1225).png?raw=true) |
 
 ### 📹 Video Walkthrough & Demo
 * **[Click Here to Watch the Full Multi-Page Interactive Demo Video](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Meta%20ad%20dashboard%20(1)%20(1).mp4)**
@@ -19,10 +19,10 @@ An end-to-end Power BI analytics solution designed to evaluate Meta (Facebook & 
 
 | Technology | Role & Application |
 | :--- | :--- |
-| **Power BI Desktop** | Multi-page report development, dark theme UI/UX (`#0B0F19` canvas, `#1E293B` containers), and native page button navigation. |
-| **DAX (Data Analysis Expressions)** | Custom calculated measures for financial ROI and engagement performance (`ROAS`, `CPA`, `CTR %`, `CPC`, `Total Spend`, `Total Revenue`). |
+| **Power BI Desktop** | Multi-page report development, dark theme UI/UX (`#0B0F19` canvas, `#1E293B` containers), and native button navigation. |
+| **DAX (Data Analysis Expressions)** | Calculated measures for financial ROI and engagement performance (`ROAS`, `CPA`, `CTR %`, `CPC`, `Total Spend`, `Total Revenue`). |
 | **Power Query** | ETL processing, data cleansing, dimensional modeling, and field mappings across fact/dimension tables. |
-| **Python (`pandas`, `numpy`)** | Synthetic ad performance dataset generation, Meta Graph API response modeling, missing value handling, and pre-ingestion data validation. |
+| **Python (`pandas`, `numpy`)** | Synthetic ad performance dataset generation, Meta Graph API response modeling, missing value handling, and pre-ingestion validation. |
 | **Git / GitHub** | Project version control, documentation, and portfolio hosting. |
 
 ---
@@ -32,13 +32,13 @@ An end-to-end Power BI analytics solution designed to evaluate Meta (Facebook & 
 Python served as the core data engine for structuring and enriching the underlying dataset prior to loading into Power BI:
 
 1. **Multi-Channel Data Simulation**:
-   * Generated realistic, multi-dimensional advertising data mimicking raw Meta Ads Manager CSV and API exports using `pandas` and `numpy`.
+   * Generated realistic, multi-dimensional advertising data mimicking raw Meta Ads Manager CSV/API exports.
    * Constructed balanced distributions across impressions, clicks, spend, revenue, conversions, demographics, platforms, and placement types.
 2. **Data Pipeline Cleansing & Transformation**:
-   * Programmatically resolved missing values, parsed date hierarchies, and harmonized currency formats via Pandas workflows.
+   * Programmatically resolved missing values, parsed date hierarchies, and harmonized currency formats via `pandas`.
    * Executed strict relationship validation checks to ensure clean primary/foreign key mappings across tables without cyclic dependencies.
 3. **API Data Extraction Simulation**:
-   * Simulated an automated ETL pipeline transforming raw nested JSON payloads (emulating Meta Graph API endpoints) into structured CSV relational tables (`ADS_DATA`, `CAMPAIGNS`, `AD_CREATIVES`).
+   * Simulated an automated ETL pipeline transforming raw nested JSON payloads (emulating Meta Graph API endpoints) into structured, tabular dimension and fact files.
 
 ---
 
@@ -66,7 +66,7 @@ To engineer an interactive, dark-themed 2-page analytics portal that enables **i
 
 ---
 
-## 📖 Comprehensive Page Walkthroughs
+## 📖 Comprehensive Page-by-Page Walkthrough
 
 ### 📊 Page 1: Executive & Financial Overview
 Designed for high-level stakeholders requiring real-time insights into total spend, revenue generation, and overall campaign effectiveness.
@@ -81,11 +81,11 @@ Designed for high-level stakeholders requiring real-time insights into total spe
 ---
 
 ### 🎯 Page 2: Operational, Audience & Creative Deep-Dive
-Designed specifically for media buyers and creative teams to analyze asset performance, placement distribution, and demographic engagement.
+Designed for media buyers and creative teams to analyze creative efficiency, demographic traction, and placement distribution.
 
-![Page 2 Final View](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1243).png?raw=true)
+![Page 2 Deep Dive Full](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1226).png?raw=true)
 
-* **Container 1: Ad Creative Performance Breakdown (Matrix Table)**
+* **Container 1: Ad Creative Performance Breakdown (Matrix)**
   * **Fields**: `AD_CREATIVES[Ad_Name]`, `AD_CREATIVES[Creative_Type]`, `ADS_DATA[Total Spend]`, `ADS_DATA[CTR %]`, `ADS_DATA[Total Conversions]`, `ADS_DATA[ROAS]`.
   * **Function**: Features conditional data bars on `ROAS` and `CTR %` to instantly highlight top-performing ad concepts and detect fatiguing static images or video assets.
 * **Container 2: Spend by Key Demographics (Horizontal Bar Chart)**
@@ -94,24 +94,58 @@ Designed specifically for media buyers and creative teams to analyze asset perfo
 * **Container 3: Placement Performance (Clustered Bar Chart)**
   * **Fields**: `ADS_DATA[Placement]` (FB Feed, IG Reels, FB Story, IG Explore), `ADS_DATA[CTR %]`.
   * **Function**: Evaluates click-through efficiency across distinct ad placements to identify low-cost conversion opportunities.
-* **Container 4: Platform Breakdown (Donut Chart)**
+* **Container 4: Platform Distribution (Donut Chart)**
   * **Fields**: `ADS_DATA[Platform]` (Facebook, Instagram, Audience Network), `ADS_DATA[Total Spend]`.
   * **Function**: Visualizes overall budget distribution across Meta platforms to guide platform-level budget reallocations.
 
 ---
 
-## 🎯 Page 2 Deep-Dive Screenshot Gallery & Visual Specifications
+## 🖼️ Complete Visual Gallery & Detailed Screenshot Index
 
-| Page 2 Feature / Visual Component | Direct Screenshot Reference | Description & Purpose |
-| :--- | :---: | :--- |
-| **Final Production View (Page 2)** | ![Screenshot 1243](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1243).png?raw=true) | Full operational page setup with all 4 synchronized visual containers and dark theme contrast. |
-| **Callout Formatting & Decimal Precision** | ![Screenshot 1235](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1235).png?raw=true) | Standardized decimal formatting (`$6.67M`, `4.29 ROAS`) across top cards and matrix values. |
-| **Matrix Conditional Formatting** | ![Screenshot 1236](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1236).png?raw=true) | In-line data bars applied to `ROAS` and `CTR %` inside the Creative matrix for instant visual hierarchy. |
-| **Slicer & Filter Controls** | ![Screenshot 1237](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1237).png?raw=true) | Global Campaign and Date slicers filtering all Page 2 visuals dynamically. |
-| **Matrix Tooltip Configuration** | ![Screenshot 1238](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1238).png?raw=true) | Custom hover tooltips providing granular creative metadata and conversion breakdown. |
-| **Placement CTR % Alignment** | ![Screenshot 1239](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1239).png?raw=true) | Sorted bar chart comparing CTR performance across Instagram Reels, Facebook Feed, and Stories. |
-| **Star Schema Relationship View** | ![Screenshot 1241](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1241).png?raw=true) | Model view verifying 1-to-Many relationships between `AD_CREATIVES`, `CAMPAIGNS`, and `ADS_DATA`. |
-| **Power Query Transformations** | ![Screenshot 1242](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1242).png?raw=true) | Applied ETL steps in Power Query for data cleansing, data type enforcement, and column generation. |
+### Executive View (Page 1 Screenshots)
+
+| Feature / Visual | Screenshot Preview |
+| :--- | :--- |
+| **Page 1 Executive Layout** | ![Screenshot 1193](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1193).png?raw=true) |
+| **KPI Grid & Navigation Header** | ![Screenshot 1195](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1195).png?raw=true) |
+| **Campaign Revenue vs Spend** | ![Screenshot 1196](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1196).png?raw=true) |
+| **Daily Spend & Revenue Trend** | ![Screenshot 1197](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1197).png?raw=true) |
+| **Executive Card Metrics** | ![Screenshot 1198](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1198).png?raw=true) |
+
+---
+
+### Creative & Placement Deep-Dive (Page 2 Screenshots)
+
+| Feature / Visual | Screenshot Preview |
+| :--- | :--- |
+| **Page 2 Deep-Dive Overview** | ![Screenshot 1225](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1225).png?raw=true) |
+| **Creative Matrix Breakdown** | ![Screenshot 1227](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1227).png?raw=true) |
+| **Platform Breakdown (Donut)** | ![Screenshot 1228](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1228).png?raw=true) |
+| **Placement CTR % Analysis** | ![Screenshot 1229](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1229).png?raw=true) |
+| **Demographics Distribution** | ![Screenshot 1230](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1230).png?raw=true) |
+| **Geographic Revenue Distribution** | ![Screenshot 1231](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1231).png?raw=true) |
+| **Audience Segment Treemap** | ![Screenshot 1232](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1232).png?raw=true) |
+
+---
+
+<details>
+<summary>🔍 Click to expand build details & close-up UI components</summary>
+
+| Build Stage / Feature | Screenshot |
+| :--- | :--- |
+| **Navigation & Header Alignment** | ![Screenshot 1233](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1233).png?raw=true) |
+| **Canvas & Theme Settings** | ![Screenshot 1234](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1234).png?raw=true) |
+| **Callout Formatting & Decimals** | ![Screenshot 1235](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1235).png?raw=true) |
+| **Matrix Conditional Formatting** | ![Screenshot 1236](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1236).png?raw=true) |
+| **Filter & Slicer Setup** | ![Screenshot 1237](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1237).png?raw=true) |
+| **Tooltip Configurations** | ![Screenshot 1238](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1238).png?raw=true) |
+| **Placement Axis Formatting** | ![Screenshot 1239](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1239).png?raw=true) |
+| **Device Breakdown Formatting** | ![Screenshot 1240](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1240).png?raw=true) |
+| **Star Schema Data Model View** | ![Screenshot 1241](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1241).png?raw=true) |
+| **Power Query Transformations** | ![Screenshot 1242](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1242).png?raw=true) |
+| **Final Multi-Page Production Model** | ![Screenshot 1243](https://github.com/Abdullahprobro/Meta-AD-Dashboard/blob/main/Screenshot%20(1243).png?raw=true) |
+
+</details>
 
 ---
 
